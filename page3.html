@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahifa 3: Sanoat va Energetika</title>
+    <!-- Google Fonts (Page 1 bilan bir xil) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --paper-color: #f7f5e6;
+            --ink-color: #1a1a1a;
+            --accent-color: #8b0000;
+        }
+
+        body {
+            background-color: #2c2c2c;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .newspaper-container {
+            max-width: 1000px;
+            /* PAGE 1 BILAN BIR XIL BALANDLIK BERILDI */
+            min-height: 1300px; 
+            margin: 0 auto;
+            background-color: var(--paper-color);
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            color: var(--ink-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER ELEMENTS */
+        .head-meta {
+            border-bottom: 2px double var(--ink-color);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Oswald', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 92px;
+            text-align: center;
+            line-height: 0.85;
+            margin: 10px 0;
+            letter-spacing: -2px;
+            font-weight: 900;
+        }
+
+        .main-headline {
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 20px 0;
+            border-top: 4px solid var(--ink-color);
+            border-bottom: 1px solid var(--ink-color);
+            padding: 10px 0;
+        }
+
+        /* LAYOUT GRID */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2.1fr 1fr; /* Chap kengroq, O'ng torroq */
+            gap: 30px;
+            flex-grow: 1; /* Sahifani pastga itarish uchun */
+        }
+
+        /* MAIN CONTENT STYLES */
+        p {
+            font-size: 13.5px;
+            line-height: 1.5; /* Biroz ochiqroq qator oraliq */
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .drop-cap {
+            float: left;
+            font-size: 65px;
+            line-height: 55px;
+            margin-right: 10px;
+            margin-top: 5px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+        }
+
+        .sub-head {
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--ink-color);
+            margin: 10px 0 10px 0;
+            padding-bottom: 3px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .pull-quote {
+            font-size: 19px;
+            line-height: 1.3;
+            font-style: italic;
+            text-align: center;
+            font-weight: bold;
+            border-top: 4px solid var(--ink-color);
+            border-bottom: 1px solid var(--ink-color);
+            padding: 15px;
+            margin: 25px 0;
+            background-color: #f2efe4;
+        }
+
+        /* SIDEBAR (O'NG TOMON) */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-frame {
+            border: 2px solid var(--ink-color);
+            padding: 3px;
+            margin-bottom: 10px;
+            background: #fff;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%) contrast(1.1);
+            display: block;
+        }
+
+        .caption {
+            font-size: 10px;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #999;
+            padding-bottom: 5px;
+        }
+
+        .stats-box {
+            border: 3px solid var(--ink-color);
+            padding: 15px;
+            background: #eae8d9;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            background: var(--ink-color);
+            color: white;
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            padding: 5px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #555;
+            padding: 6px 0;
+            font-size: 12px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* TEXT FILLER (Bo'sh joyni yopish) */
+        .text-filler-box {
+            background-color: var(--ink-color);
+            color: #fff;
+            padding: 15px;
+            margin-top: auto; /* Pastga taqalishi uchun */
+        }
+        
+        .text-filler-box h4 {
+            font-family: 'Oswald';
+            border-bottom: 1px solid #ccc;
+            margin: 0 0 10px 0;
+            padding-bottom: 5px;
+        }
+        
+        .text-filler-box li {
+            font-size: 12px;
+            margin-bottom: 8px;
+            list-style-type: square;
+        }
+
+        /* FOOTER GRID (Infratuzilma) */
+        .bottom-section {
+            border-top: 4px double var(--ink-color);
+            margin-top: 20px;
+            padding-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .infra-title {
+            font-family: 'Oswald';
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: underline;
+            margin-bottom: 5px;
+        }
+        
+        .infra-text {
+            font-size: 12px;
+            line-height: 1.3;
+            text-align: justify;
+        }
+
+        /* FOOTER */
+        .news-footer {
+            border-top: 1px solid var(--ink-color);
+            margin-top: 30px;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+        }
+
+        .page-num {
+            background: black;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="newspaper-container">
+
+        <!-- HEADER META -->
+        <div class="head-meta">
+            <span>TOSHKENT, O'ZBEKISTON</span>
+            <span>SANOAT TAHLILI</span>
+        </div>
+
+        <header>
+            <h1>SANOAT KUCHI</h1>
+            <div style="text-align: center; font-style: italic; font-size: 14px; margin-top: -10px; margin-bottom: 10px;">
+                "Xomashyodan yuqori qiymatli tayyor mahsulotga"
+            </div>
+        </header>
+
+        <h2 class="main-headline">AGRAR DAVLATDAN TEXNOLOGIK MARKAZGA AYLANGANCHA</h2>
+
+        <div class="content-wrapper">
+
+            <!-- 1. CHAP TOMON: ASOSIY TARIX -->
+            <div>
+                <div class="sub-head">1. ASAKA MO'JIZASI (AVTOSANOAT)</div>
+                <p>
+                    <span class="drop-cap">1</span>996-yil — O'zbekistonning sanoat tarixidagi eng yorqin sahifalardan biri ochildi. Aynan shu yili Andijon viloyatining Asaka shahrida "UzDaewooAuto" zavodi tantanali ravishda ishga tushirildi. Bu loyiha nafaqat Markaziy Osiyo, balki butun MDH hududida yagona bo'lgan to'liq siklli avtomobil ishlab chiqarish korxonasi edi. Dastlabki yillarda zavod konveyerlaridan ixcham "Tico", mikroavtobus "Damas" va ko'pchilikning sevimlisiga aylangan "Nexia" avtomobillari chiqa boshladi.
+                </p>
+                <p>
+                    Bu loyiha shunchaki transport ishlab chiqarish emas edi. U butun mamlakat bo'ylab <strong>mahalliylashtirish zanjiri</strong>ni yaratdi. Farg'onada oyna zavodi, Xorazmda bamper sexlari, Toshkentda kabel va o'rindiq ishlab chiqaruvchi korxonalar paydo bo'ldi. Natijada yuz minglab yuqori malakali muhandislar va texnologlar avlodi yetishib chiqdi.
+                </p>
+
+                <div class="sub-head">2. OLTIN VA GAZNI QAYTA ISHLASH</div>
+                <p>
+                    Sanoatlashtirishning ikkinchi to'lqini qazilma boyliklarga asoslangan edi. O'zbekiston "Mendeleyev jadvali"dagi deyarli barcha elementlarga ega mamlakatdir. Navoiy kon-metallurgiya kombinati (NKMK) qoshidagi <strong>Muruntau koni</strong> dunyodagi eng yirik ochiq oltin koni sifatida e'tirof etiladi. O'zbekiston yillik oltin qazib olish bo'yicha barqaror ravishda dunyodagi yetakchi 10 ta davlat qatorida turadi.
+                </p>
+                <p>
+                    2000-yillarga kelib, gazni shunchaki xomashyo sifatida eksport qilish strategiyasidan voz kechildi. Sho'rtan Gaz-Kimyo majmuasining qurilishi bilan sahro bag'rida "Gazdan-Polimerga" tamoyili ishga tushdi. Tabiiy gaz endi polietilen, plastik quvurlar va tomchilatib sug'orish tizimlari uchun xomashyoga aylandi. 2021-yilda ishga tushgan <strong>UzGTL</strong> zavodi esa ushbu strategiyaning cho'qqisi bo'lib, u yerda gazdan aviakerosin va dizel yoqilg'isi olinmoqda.
+                </p>
+
+                <div class="pull-quote">
+                    "O'zbekiston endi faqat paxta yetishtiruvchi emas. Biz texnologiya, mashinasozlik va kimyo sanoati davlati sifatida tanilyapmiz."
+                </div>
+
+                <div class="sub-head">3. "PAXTA QULLIGI"DAN TO'QIMACHILIK KLASTERIGACHA</div>
+                <p>
+                    Yillar davomida O'zbekiston "paxta xomashyosi bazasi" deb atalgan. Biroq 2017-yildan keyingi islohotlar buni butunlay o'zgartirdi. Paxtani tola holida sotish taqiqlandi. O'rniga <strong>"Paxta-To'qimachilik Klasterlari"</strong> tashkil etildi. Hozirda daladagi g'o'zadan tortib, do'kondagi futbolkagacha bo'lgan barcha jarayon bitta korxona ichida amalga oshirilmoqda. Bugungi kunda "UzTextile" brendi ostidagi mahsulotlar Yevropa va AQSH bozorlariga kirib bormoqda, bu esa iqtisodiyotga xomashyodan ko'ra 5 barobar ko'proq daromad keltirmoqda.
+                </p>
+            </div>
+
+            <!-- 2. O'NG TOMON: SIDEBAR (IMAGE & STATS) -->
+            <div class="right-col">
+                
+                <!-- IMAGE PLACEHOLDER -->
+                <div class="photo-frame">
+                    <img src="page3.png" alt="O'zbekiston Sanoat Manzarasi">
+                </div>
+                <div class="caption">Sho'rtan Gaz-Kimyo majmuasi. Energetika mustaqilligining ramzi.</div>
+
+                <!-- PASPORT QUTISI -->
+                <div class="stats-box">
+                    <div class="stats-header">SANOAT PASPORTI (2025)</div>
+                    <div class="data-row">
+                        <span>Lider Tarmoq:</span>
+                        <strong>Avtomobilsozlik</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Ishlab Chiqarish:</span>
+                        <strong>420,000+ avto/yil</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Gaz Qazib Olish:</span>
+                        <strong>50 mlrd m³</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Elektr Generatsiyasi:</span>
+                        <strong>80 mlrd kVt/s</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Oltin Zaxirasi:</span>
+                        <strong>Dunyo Top-5</strong>
+                    </div>
+                    <div class="data-row" style="border:none;">
+                        <span>Uran Zaxirasi:</span>
+                        <strong>Dunyo Top-10</strong>
+                    </div>
+                </div>
+
+                <!-- BO'SHLIQNI TO'LDIRUVCHI TEXNOPARKLAR BLOKI -->
+                <div class="text-filler-box">
+                    <h4 style="color: #f7f5e6;">MAISHIY TEXNIKA BUMI</h4>
+                    <p style="font-size: 11px; margin-bottom: 10px;">
+                        2010-yildan so'ng O'zbekiston maishiy texnika importchisi o'rniga eksportchiga aylandi.
+                    </p>
+                    <ul>
+                        <li><strong>ARTEL:</strong> Samsung hamkorligida mintaqaviy gigantga aylandi.</li>
+                        <li><strong>TEXNOPARK:</strong> Toshkentda liftlar, aqlli gaz hisoblagichlar, nasoslar va sanoat konditsionerlari ishlab chiqaruvchi 20 ta zavod majmuasi.</li>
+                    </ul>
+                    <p style="font-size: 10px; margin-top: 20px; text-align: right; opacity: 0.8;">
+                        Ma'lumotlar Statistika Agentligi ochiq hisobotlaridan olindi.
+                    </p>
+                </div>
+                
+                <!-- QO'SHIMCHA GAP (Align bottom) -->
+                <div style="margin-top: 20px; border: 1px dotted #000; padding: 10px; font-size: 11px; font-style: italic;">
+                    Sanoatdagi o'zgarishlar shuni ko'rsatmoqdaki, O'zbekiston yaqin 5 yillikda mintaqaning "Sanoat Xabi" (Industrial Hub) maqomini to'liq o'ziga oladi.
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PASTKI INFRATUZILMA BLOKLARI -->
+        <div class="bottom-section">
+            <div>
+                <div class="infra-title">TEMIR YO'LLAR LOGISTIKASI</div>
+                <div class="infra-text">
+                    Sanoat rivoji uchun yo'llar muhim. Qamchiq dovonida 19 km lik tonnel qazilib, Vodiy poytaxtga ulandi. "Afrosiyob" tezyurar poyezdi Toshkent-Buxoro o'rtasidagi masofani qisqartirib, biznes va turizm tezligini oshirdi.
+                </div>
+            </div>
+            <div>
+                <div class="infra-title">YASHIL ENERGIYA O'TISHI</div>
+                <div class="infra-text">
+                    Sanoat korxonalari ko'p energiya talab qiladi. Shu sababli, Navoiy va Buxoroda yirik Quyosh va Shamol elektr stansiyalari (Masdar, ACWA Power) qurilmoqda. Maqsad — 2030 yilga borib energiyaning 30 foizini qayta tiklanuvchi manbalardan olish.
+                </div>
+            </div>
+            <div>
+                <div class="infra-title">EKSPORT GEOGRAFIYASI</div>
+                <div class="infra-text">
+                    Agar 90-yillarda eksport asosan Rossiyaga bo'lsa, bugun O'zbekiston mahsulotlari (ayniqsa tekstil, mis va maishiy texnika) Xitoy, Turkiya va Yevropa bozorlariga kirib bormoqda. GSP+ dasturi doirasida Yevropaga bojsiz eksport yo'lga qo'yildi.
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="news-footer">
+            <div>Daler Obidov</div>
+            <div class="page-num">3-SAHIFA</div>
+            <div>OXFORD INTERNATIONAL SCHOO, 2025</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

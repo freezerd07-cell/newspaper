@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahifa 5: Urbanizatsiya</title>
+    <!-- Google Fonts - Oldingi sahifalar bilan bir xil -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --paper-color: #f7f5e6;
+            --ink-color: #1a1a1a;
+            --accent-color: #8b0000;
+        }
+
+        body {
+            background-color: #2c2c2c;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .newspaper-container {
+            max-width: 1000px;
+            min-height: 1300px; /* Standart O'lcham */
+            margin: 0 auto;
+            background-color: var(--paper-color);
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            color: var(--ink-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER ELEMENTS */
+        .head-meta {
+            border-bottom: 2px double var(--ink-color);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Oswald', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 88px;
+            text-align: center;
+            line-height: 0.85;
+            margin: 10px 0;
+            letter-spacing: -2px;
+            font-weight: 900;
+        }
+
+        .main-headline {
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 20px 0;
+            border-top: 4px solid var(--ink-color);
+            border-bottom: 1px solid var(--ink-color);
+            padding: 10px 0;
+        }
+
+        /* GRID SYSTEM */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        /* TEXT STYLES */
+        p {
+            font-size: 13.5px;
+            line-height: 1.5;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .sub-head {
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--ink-color);
+            margin: 15px 0 10px 0;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .drop-cap {
+            float: left;
+            font-size: 65px;
+            line-height: 55px;
+            margin-right: 10px;
+            margin-top: 5px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+        }
+
+        /* PULL QUOTE */
+        .pull-quote {
+            font-size: 19px;
+            line-height: 1.3;
+            font-style: italic;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid var(--ink-color);
+            padding: 15px;
+            margin: 25px 0;
+            background-color: #2b2b2b; /* Inversiya */
+            color: #f7f5e6;
+        }
+
+        /* BLUEPRINT BOX (YANGI USLUB) */
+        .blueprint-box {
+            background-color: #e0ded0;
+            background-image: linear-gradient(#ccc 1px, transparent 1px), linear-gradient(90deg, #ccc 1px, transparent 1px);
+            background-size: 20px 20px;
+            padding: 15px;
+            border: 1px solid #999;
+            margin-top: 15px;
+        }
+        
+        .blueprint-box h5 {
+            margin: 0 0 10px 0;
+            font-family: 'Oswald';
+            text-decoration: underline;
+        }
+
+        /* RIGHT SIDEBAR ELEMENTS */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-frame {
+            border: 2px solid var(--ink-color);
+            padding: 3px;
+            margin-bottom: 10px;
+            background: #fff;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            display: block;
+        }
+
+        .caption {
+            font-size: 10px;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #999;
+            padding-bottom: 5px;
+        }
+
+        .stats-box {
+            border: 3px double var(--ink-color);
+            padding: 15px;
+            background: #eae8d9;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            background: var(--ink-color);
+            color: white;
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            padding: 5px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #555;
+            padding: 6px 0;
+            font-size: 12px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* FILLER CONTENT */
+        .filler-box {
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 10px;
+            margin-top: auto;
+        }
+
+        /* BOTTOM SECTION */
+        .bottom-section {
+            border-top: 4px double var(--ink-color);
+            margin-top: 20px;
+            padding-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .infra-title {
+            font-family: 'Oswald';
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: underline;
+            margin-bottom: 5px;
+        }
+        
+        .infra-text {
+            font-size: 12px;
+            line-height: 1.3;
+            text-align: justify;
+        }
+
+        /* FOOTER */
+        .news-footer {
+            border-top: 1px solid var(--ink-color);
+            margin-top: 30px;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+        }
+
+        .page-num {
+            background: black;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="newspaper-container">
+
+        <!-- HEADER META -->
+        <div class="head-meta">
+            <span>TOSHKENT, O'ZBEKISTON</span>
+            <span>QURILISH SEKTORI</span>
+            <span>SHAHARSOZLIK</span>
+        </div>
+
+        <header>
+            <h1>URBANIZATSIYA</h1>
+            <div style="text-align: center; font-style: italic; font-size: 14px; margin-top: -10px; margin-bottom: 10px;">
+                "Paxsa devorlardan osmono'par binolar sari"
+            </div>
+        </header>
+
+        <h2 class="main-headline">YANGI O'ZBEKISTON QIYOFASI: KATTA QURILISHLAR DAVRI</h2>
+
+        <div class="content-wrapper">
+
+            <!-- 1. CHAP USTUN -->
+            <div class="left-col">
+                <div class="sub-head">1. TOSHKENT CITY VA MEGA-LOYIHALAR</div>
+                <p>
+                    <span class="drop-cap">2</span>017-yildan so'ng O'zbekiston iqtisodiyotining eng katta drayverlaridan biri shubhasiz qurilish sektori bo'ldi. Poytaxt markazidagi 80 gektarlik <strong>"Toshkent City"</strong> xalqaro ishbilarmonlik markazining qurilishi bunga yaqqol misol bo'la oladi. Ushbu loyiha qiymati 1.5 milliard dollardan oshiq xorijiy va mahalliy investitsiyalarni jalb qildi.
+                </p>
+                <p>
+                    Uning markazida qad rostlagan <strong>"Nest One"</strong> osmono'par binosi (267 metr) mustaqil O'zbekiston tarixidagi eng baland inshootga aylandi. Bu loyiha nafaqat biznes markazi, balki xorijiy investorlarga berilgan signal edi: "O'zbekistonda xavfsiz va zamonaviy standartlarda qurilish qilish mumkin". Toshkentdan so'ng, "Bukhara City", "Namangan City" va "Olmazor City" kabi zamonaviy mavzelar butun mamlakat bo'ylab qad rostlay boshladi.
+                </p>
+
+                <div class="pull-quote">
+                    "Biz shaharlarni shunchaki kengaytirayotganimiz yo'q. Biz ularni 'Smart City' texnologiyalari bilan qayta kashf etyapmiz."
+                </div>
+
+                <div class="sub-head">2. SEMENT VA SANOAT BUMI</div>
+                <p>
+                    Qurilish hajmining ortishi qurilish materiallari sanoatiga misli ko'rilmagan talabni yaratdi. Agar 2016-yilda mamlakat sement taqchilligi bilan kurashgan bo'lsa, 2024-yilga kelib sement ishlab chiqarish hajmi <strong>36 million tonna</strong>ga yetdi. Sektorga Xitoy, Turkiya va Germaniya texnologiyalari kirib keldi. Hozirda O'zbekiston oyna, gipsokarton, bo'yoq va kafellarni nafaqat o'ziga yetkazib berayapti, balki Qozog'iston, Tojikiston va Afg'onistonga eksport qilmoqda.
+                </p>
+
+                <!-- BLUEPRINT INSERT -->
+                <div class="blueprint-box">
+                    <h5>LOYIHA: "YANGI O'ZBEKISTON" MASSIVLARI</h5>
+                    <p style="font-size: 12px; margin: 0;">
+                        Faqat hashamatli uylar emas, aholi uchun hamyonbop turar joylar qurilishi ham strategik maqsadga aylandi.
+                        <br><br>
+                        <strong>Natija:</strong> So'nggi 5 yilda 300 mingdan ortiq oila ipoteka kreditlari asosida yangi uyli bo'ldi. Barcha viloyat markazlarida "Yangi O'zbekiston" massivlari barpo etildi.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. O'NG USTUN -->
+            <div class="right-col">
+                
+                <!-- IMAGE -->
+                <div class="photo-frame">
+                    <!-- page5.png nomli rasm qo'yiladi -->
+                    <img src="page5.png" alt="Toshkent City Manzarasi">
+                </div>
+                <div class="caption">"Nest One" minorasi. Poytaxt siluetining yangi ramzi.</div>
+
+                <!-- STATS -->
+                <div class="stats-box">
+                    <div class="stats-header">SHAHARSOZLIK INDEKSI (2024)</div>
+                    <div class="data-row">
+                        <span>Investitsiya Hajmi:</span>
+                        <strong>$30 mlrd+ (7 yilda)</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Urbanizatsiya:</span>
+                        <strong>51% (Shahar aholisi)</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Uy-joy qurilishi:</span>
+                        <strong>90 ming xonadon/yil</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Yashil Maydonlar:</span>
+                        <strong>+200 gektar (Bog'lar)</strong>
+                    </div>
+                    <div class="data-row" style="border:none;">
+                        <span>Qurilish Korxonalari:</span>
+                        <strong>35,000+</strong>
+                    </div>
+                </div>
+
+                <!-- FILLER CONTENT (Yangi Toshkent haqida) -->
+                <div class="filler-box">
+                    <h5 style="margin:0 0 10px 0; font-family:'Oswald'; border-bottom:1px solid #ccc;">KELAJAK LOYIHASI</h5>
+                    <p style="font-size:11px; text-align:justify;">
+                        2023-yilda <strong>"Yangi Toshkent"</strong> shahrining qurilishi boshlandi. 
+                        <br><br>
+                        20 ming gektar maydonda 1 million aholiga mo'ljallangan ushbu aqlli shahar, ma'muriy markazlar va IT-hablarni o'z ichiga oladi. Loyiha Chirchiq va Qorasuv daryolari oralig'ida joylashgan.
+                    </p>
+                </div>
+
+                <div style="background:var(--accent-color); color:#fff; padding:10px; margin-top:20px; font-size:11px; text-align:center;">
+                    2025-yil "Toshkent - Jahonning Eng Yosh Turistik Poytaxti" deb e'lon qilindi.
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BOTTOM SECTION -->
+        <div class="bottom-section">
+            <div>
+                <div class="infra-title">TURIZM INFRATUZILMASI</div>
+                <div class="infra-text">
+                    Mehmonxonalar soni 5 baravarga oshdi. Samarqandda qurilgan "Silk Road Samarkand" turistik majmuasi Markaziy Osiyoning turizm darvozasiga aylandi. Buxoro va Xiva aeroportlari rekonstruksiya qilindi.
+                </div>
+            </div>
+            <div>
+                <div class="infra-title">IPOTEKA BOZORI</div>
+                <div class="infra-text">
+                    2019-yilgi islohotdan so'ng, tijorat banklari bozor tamoyillari asosida ipoteka berishni boshladi. Hukumat dastlabki badal va foizlarni qoplash uchun subsidiyalar joriy etdi, bu minglab yosh oilalarga uy olish imkonini berdi.
+                </div>
+            </div>
+            <div>
+                <div class="infra-title">EKOLOGIK QURILISH</div>
+                <div class="infra-text">
+                    Shaharlarning kengayishi daraxtlarning kesilishiga olib kelgani bois, "Yashil Makon" umummilliy loyihasi e'lon qilindi. Yiliga 200 million tup daraxt ekish va yangi bog'lar barpo etish qurilish normalariga kiritildi.
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="news-footer">
+            <div>Daler Obidov</div>
+            <div class="page-num">5-SAHIFA</div>
+            <div>OXFORD INTERNATIONAL SCHOO, 2025</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

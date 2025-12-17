@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahifa 4: Agro-Sanoat</title>
+    <!-- Google Fonts - 1-3 sahifalar bilan bir xil -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --paper-color: #f7f5e6;
+            --ink-color: #1a1a1a;
+            --accent-color: #8b0000;
+        }
+
+        body {
+            background-color: #2c2c2c;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .newspaper-container {
+            max-width: 1000px;
+            min-height: 1300px; /* Standart 3-sahifa kabi */
+            margin: 0 auto;
+            background-color: var(--paper-color);
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            color: var(--ink-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER ELEMENTS */
+        .head-meta {
+            border-bottom: 2px double var(--ink-color);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Oswald', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 92px; /* Standard Size */
+            text-align: center;
+            line-height: 0.85;
+            margin: 10px 0;
+            letter-spacing: -2px;
+            font-weight: 900;
+        }
+
+        .main-headline {
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 20px 0;
+            border-top: 4px solid var(--ink-color);
+            border-bottom: 1px solid var(--ink-color);
+            padding: 10px 0;
+        }
+
+        /* LAYOUT GRID (2-Column as always) */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2.1fr 1fr;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        /* TEXT STYLES */
+        p {
+            font-size: 13.5px;
+            line-height: 1.5;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .drop-cap {
+            float: left;
+            font-size: 65px;
+            line-height: 55px;
+            margin-right: 10px;
+            margin-top: 5px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+        }
+
+        .sub-head {
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--ink-color);
+            margin: 15px 0 10px 0;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* SIDEBAR BLOKLARI */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-frame {
+            border: 2px solid var(--ink-color);
+            padding: 3px;
+            margin-bottom: 10px;
+            background: #fff;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%); /* B&W effect */
+            display: block;
+        }
+
+        .caption {
+            font-size: 10px;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #999;
+            padding-bottom: 5px;
+        }
+
+        .stats-box {
+            border: 3px solid var(--ink-color);
+            padding: 15px;
+            background: #eae8d9;
+            margin-bottom: 20px;
+        }
+
+        .stats-header {
+            background: var(--ink-color);
+            color: white;
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            padding: 5px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #555;
+            padding: 6px 0;
+            font-size: 12px;
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        /* IQTIBOS BLOKI */
+        .pull-quote {
+            font-size: 19px;
+            line-height: 1.3;
+            font-style: italic;
+            text-align: center;
+            font-weight: bold;
+            border: 2px dashed var(--ink-color);
+            padding: 15px;
+            margin: 25px 0;
+            color: var(--accent-color);
+        }
+
+        /* FILLER (TO'LDIRUVCHI MATN BLOKI) */
+        .filler-block {
+            background-color: #2b2b2b;
+            color: #f7f5e6;
+            padding: 15px;
+            margin-top: auto;
+        }
+
+        .filler-block h5 {
+            font-family: 'Oswald';
+            margin: 0 0 10px 0;
+            border-bottom: 1px solid #777;
+        }
+
+        /* FOOTER GRID (BOTTOM) */
+        .bottom-section {
+            border-top: 4px double var(--ink-color);
+            margin-top: 20px;
+            padding-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .infra-title {
+            font-family: 'Oswald';
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            text-decoration: underline;
+            margin-bottom: 5px;
+        }
+        
+        .infra-text {
+            font-size: 12px;
+            line-height: 1.3;
+            text-align: justify;
+        }
+
+        /* PAGE FOOTER */
+        .news-footer {
+            border-top: 1px solid var(--ink-color);
+            margin-top: 30px;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+        }
+
+        .page-num {
+            background: black;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="newspaper-container">
+
+        <!-- HEADER META -->
+        <div class="head-meta">
+            <span>TOSHKENT, O'ZBEKISTON</span>
+            <span>QISHLOQ XO'JALIGI</span>
+            <span>AGRO TAHLIL</span>
+        </div>
+
+        <header>
+            <h1>OQ OLTIN</h1>
+            <div style="text-align: center; font-style: italic; font-size: 14px; margin-top: -10px; margin-bottom: 10px;">
+                "Xomashyo eksportidan tayyor tekstil brendigacha"
+            </div>
+        </header>
+
+        <h2 class="main-headline">PAXTA MONOKULTURASI TUGATILDI: YOSHLARNI DALAGA EMAS, FABRIKAGA QAYTARDIK</h2>
+
+        <div class="content-wrapper">
+
+            <!-- 1. CHAP TOMON: ASOSIY MAQOLA -->
+            <div class="left-col">
+                <div class="sub-head">1. MONOKULTURA DAVRI (1991-2016)</div>
+                <p>
+                    <span class="drop-cap">O</span>'zbekiston uzoq yillar davomida dunyo bozorida faqat paxta xomashyosi sotuvchisi sifatida tanilgan. Mustaqillikning dastlabki 25 yilida mamlakat valyuta tushumining asosiy qismi aynan paxta tolasiga bog'liq edi. Bu siyosatning o'ziga xos og'ir narxi bor edi: har yili kuzda minglab talabalar, shifokorlar va o'qituvchilar majburiy tarzda paxta terimiga jalb qilinar edi. Bu holat nafaqat ta'lim va tibbiyot sifatiga putur yetkazdi, balki xalqaro hamjamiyat, xususan <strong>"Cotton Campaign"</strong> koalitsiyasi tomonidan O'zbekiston paxtasiga global boykot e'lon qilinishiga olib keldi.
+                </p>
+                <p>
+                    2016-yilga kelib vaziyat shunday ediki, O'zbekiston paxtani tonnalab arzonga sotar, lekin tayyor kiyim-kechakni chetdan valyutaga sotib olardi. Tuproq unumdorligi pasayib, Orol dengizi fojiasi chuqurlashdi. Tizimli o'zgarish zarur edi.
+                </p>
+
+                <div class="sub-head">2. INQILOBIY ISLOHOT: KLASTERLAR</div>
+                <p>
+                    Prezident Shavkat Mirziyoyevning eng keskin va tarixiy qarorlaridan biri — bu davlatning paxta yetishtirishdagi rolini bekor qilish bo'ldi. <strong>2020-yil 6-martda</strong> O'zbekiston hukumati tarixda birinchi marta xom paxta eksportini to'liq to'xtatdi. Maqsad aniq edi: paxtani o'zimizda qayta ishlash.
+                </p>
+                <p>
+                    Eski "kolxoz" tizimi o'rniga zamonaviy <strong>Agro-Tekstil Klasterlari</strong> joriy etildi. Klaster — bu dalada paxta ekishdan tortib, uni ipga aylantirish, mato to'qish va tayyor kiyim tikib eksport qilishgacha bo'lgan to'liq zanjirni birlashtirgan xususiy kompaniyadir. Natijada majburiy mehnatga barham berildi. 2022-yilning mart oyida "Cotton Campaign" o'zbek paxtasiga qo'yilgan boykotni rasman bekor qildi. Bu <strong>Nike, Adidas, Zara</strong> kabi dunyo brendlari uchun O'zbekiston eshiklarini ochdi.
+                </p>
+
+                <div class="pull-quote">
+                    "Biz 100 yillik tarixga ega majburiy mehnat tizimiga nuqta qo'ydik. Endi paxta xalqimizga kulfat emas, balki boylik va ish o'rni manbai bo'lib xizmat qiladi."
+                </div>
+
+                <div class="sub-head">3. MEVA-SABZAVOT EKSPORTI BUMI</div>
+                <p>
+                    Samarasiz paxta maydonlari qisqartirilib, o'rniga daromadi yuqori bo'lgan intensiv bog'lar va issiqxonalar yaratildi. Farg'ona vodiysi va Surxondaryoda zamonaviy logistika markazlari qurildi. 
+                    <br><br>
+                    Bugun O'zbekiston gilos, o'rik, uzum va quritilgan mevalar eksporti bo'yicha dunyoda kuchli o'ntalikka kirdi. 2024-yilda agrar sektorning eksport salohiyati ilk bor <strong>2 milliard dollar</strong>dan oshdi. Endilikda o'zbek mevasi nafaqat Rossiya bozorida, balki Xitoy, Koreya va Yevropa supermarketlarida ham "Premium" mahsulot sifatida sotilmoqda.
+                </p>
+            </div>
+
+            <!-- 2. O'NG TOMON: SIDEBAR STATISTIKA -->
+            <div class="right-col">
+                
+                <!-- IMAGE PLACEHOLDER -->
+                <div class="photo-frame">
+                    <!-- page4.png deb nomlaymiz, rasm bo'lmasa qora ramka -->
+                    <img src="page4.png" alt="O'zbekiston to'qimachilik fabrikasi">
+                </div>
+                <div class="caption">Zamonaviy tikuv sexi. Paxta endi eksport qilinmaydi, undan brend mahsulotlar tikilmoqda.</div>
+
+                <!-- STATS BOX -->
+                <div class="stats-box">
+                    <div class="stats-header">AGRO HISOBO TI (2024)</div>
+                    <div class="data-row">
+                        <span>Xom Paxta Eksporti:</span>
+                        <strong>0% (To'xtatildi)</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Tekstil Eksporti:</span>
+                        <strong>$4.5 mlrd</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Qayta Ishlash:</span>
+                        <strong>100%</strong>
+                    </div>
+                    <div class="data-row">
+                        <span>Meva-sabzavot:</span>
+                        <strong>$2.2 mlrd</strong>
+                    </div>
+                    <div class="data-row" style="border:none;">
+                        <span>Klasterlar Soni:</span>
+                        <strong>134 ta</strong>
+                    </div>
+                </div>
+
+                <!-- TEXT FILLER (Kichik tahlil) -->
+                <div class="filler-block">
+                    <h5>GSP+ IMTIYOZLARI</h5>
+                    <p style="font-size: 11px; margin-bottom: 10px;">
+                        2021-yilda Yevropa Ittifoqi O'zbekistonga <strong>GSP+</strong> maqomini berdi.
+                    </p>
+                    <ul style="padding-left: 20px; font-size: 11px;">
+                        <li><strong>Nima beradi?</strong> 6200 turdagi mahsulot (asosan tekstil va agro) Yevropaga bojsiz (0%) kiritiladi.</li>
+                        <li><strong>Natija:</strong> Yevropaga tekstil eksporti 3 yilda 2.5 baravarga oshdi.</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 15px; border: 1px dotted #000; padding: 10px; font-size: 11px; font-style: italic; background: #fff;">
+                    Bugun tekstil sanoati avtomobilsozlik va oltindan keyingi uchinchi eng yirik valyuta manbayiga aylandi. Sektorda 400 mingdan ortiq ayollar doimiy ish bilan ta'minlangan.
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER INFO BLOCKS -->
+        <div class="bottom-section">
+            <div>
+                <div class="infra-title">SUV TEJOVCHI TEXNOLOGIYALAR</div>
+                <div class="infra-text">
+                    Iqlim o'zgarishi va suv taqchilligiga qarshi kurashish uchun paxta dalalarida tomchilatib sug'orish tizimi joriy etilmoqda. Davlat fermerlarga texnologiya o'rnatish uchun subsidiyalar ajratdi. 2030 yilga borib an'anaviy ariqdan sug'orish butunlay tugatilishi rejalashtirilgan.
+                </div>
+            </div>
+            <div>
+                <div class="infra-title">OZIQ-OVQAT XAVFSIZLIGI</div>
+                <div class="infra-text">
+                    Bug'doy va un mustaqilligi to'liq ta'minlandi. Parrandachilik va chorvachilik klasterlari hisobiga go'sht, sut va tuxum ishlab chiqarish 10 yilda 3 barobar o'sdi. Ichki bozorni to'liq ta'minlab, qo'shni Afg'oniston va Tojikistonga eksport qilish boshlandi.
+                </div>
+            </div>
+            <div>
+                <div class="infra-title">GLOBAL BRENDLAR BILAN HAMKORLIK</div>
+                <div class="infra-text">
+                    Boykot bekor qilingach, dunyoning eng yirik kiyim-kechak gigantlari "Inditex" (Zara), "H&M" va "Nike" vakillari O'zbekistonga tashrif buyurdi. Hozirda ko'plab o'zbek fabrikalari ularning autsorsing buyurtmalarini bajarmoqda.
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="news-footer">
+            <div>Daler Obidov</div>
+            <div class="page-num">4-SAHIFA</div>
+            <div>OXFORD INTERNATIONAL SCHOO, 2025</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

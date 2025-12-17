@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahifa 2: Moliya Tizimi</title>
+    <!-- Google Fonts - Page 1 & 3 bilan bir xil -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* 1-sahifa rang palitrasi */
+            --paper-color: #f7f5e6;
+            --ink-color: #1a1a1a;
+            --accent-color: #8b0000;
+        }
+
+        body {
+            background-color: #2c2c2c;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Noto Serif', serif;
+        }
+
+        .newspaper-container {
+            max-width: 1000px;
+            /* O'LCHAM BIR XILLIGI: Page 1 va 3 kabi */
+            min-height: 1300px; 
+            margin: 0 auto;
+            background-color: var(--paper-color);
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            color: var(--ink-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER ELEMENTLARI */
+        .head-meta {
+            border-bottom: 2px double var(--ink-color);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Oswald', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 80px; 
+            text-align: center;
+            line-height: 0.9;
+            margin: 10px 0;
+            letter-spacing: -2px;
+            font-weight: 900;
+            border-bottom: 1px solid var(--ink-color);
+            padding-bottom: 10px;
+        }
+
+        .rubric {
+            text-align: center;
+            font-family: 'Oswald';
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            background: var(--ink-color);
+            color: #fff;
+            padding: 2px;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Rubrikani markazlashtirish */
+        div[style*="text-align: center"] .rubric {
+            display: inline-block;
+        }
+
+        .main-headline {
+            font-family: 'Oswald', sans-serif;
+            text-align: left;
+            font-size: 38px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin: 20px 0;
+            line-height: 1.1;
+            border-bottom: 3px solid var(--ink-color);
+        }
+
+        /* GRID TIZIMI */
+        .page-grid {
+            display: grid;
+            grid-template-columns: 2.1fr 1fr; /* Asosiy + Sidebar */
+            gap: 30px;
+            flex-grow: 1; /* Matn oz bo'lsa ham joyni cho'zish */
+        }
+
+        /* TEXT STYLES */
+        p {
+            font-size: 13.5px;
+            line-height: 1.5;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .sub-head {
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--ink-color);
+            margin: 15px 0 10px 0;
+            display: block;
+        }
+
+        .drop-cap {
+            float: left;
+            font-size: 60px;
+            line-height: 50px;
+            margin-right: 10px;
+            margin-top: 5px;
+            font-family: 'Cinzel', serif;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .pull-quote {
+            font-size: 18px;
+            font-family: 'Noto Serif', serif;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+            margin: 25px 0;
+            border: 2px solid var(--ink-color);
+            background-color: #f0ebe0;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* SIDEBAR ELEMENTLARI */
+        .sidebar-box {
+            border: 2px solid var(--ink-color);
+            padding: 15px;
+            background-color: #eae8d9;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-family: 'Oswald';
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            background: var(--ink-color);
+            color: #fff;
+            padding: 5px;
+            margin: -15px -15px 15px -15px;
+        }
+
+        .table-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            border-bottom: 1px dotted #666;
+            padding: 5px 0;
+        }
+
+        /* IMAGE STYLING */
+        .img-frame {
+            border: 1px solid var(--ink-color);
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            display: block;
+        }
+        
+        .caption {
+            font-size: 10px;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* FOOTER GRID (BOTTOM SECTION) */
+        .bottom-section {
+            margin-top: auto; /* Sahifaning eng pastiga itarish */
+            padding-top: 20px;
+            border-top: 4px double var(--ink-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feature-item h4 {
+            margin: 0 0 5px 0;
+            font-family: 'Oswald';
+            font-size: 14px;
+            text-decoration: underline;
+        }
+
+        .feature-item p {
+            font-size: 12px;
+            margin: 0;
+            line-height: 1.3;
+            text-align: justify;
+        }
+
+        /* FILLER CONTENT SIDEBAR */
+        .filler-box {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .filler-box ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .filler-box li {
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+        .news-footer {
+            border-top: 1px solid var(--ink-color);
+            margin-top: 30px;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+        }
+
+        .page-num {
+            background: black;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="newspaper-container">
+
+        <!-- HEADER META -->
+        <div class="head-meta">
+            <span>IQTISODIYOT BO'LIMI</span>
+            <span>2025 Yil Hisoboti</span>
+            <span>MOLIYA VA BANKLAR</span>
+        </div>
+
+        <div style="text-align: center;">
+            <div class="rubric">BANK - MOLIYA - KAPITAL</div>
+        </div>
+        
+        <header>
+            <h1>O'ZBEKISTON PULLARI</h1>
+        </header>
+
+        <h2 class="main-headline">SO'MDAN FINTECH SARI: MOLIYAVIY MUSTAQILLIK EVOLYUTSIYASI</h2>
+
+        <div class="page-grid">
+
+            <!-- CHAP TOMON: ASOSIY MAQOLA -->
+            <div class="main-content">
+                <div class="sub-head">1. RUBL HUDUDINING PARCHALANISHI (1991-1994)</div>
+                <p>
+                    <span class="drop-cap">1</span>993-yil — O'zbekistonning mustaqillik tongidagi eng og'ir iqtisodiy yili bo'ldi. Sobiq Ittifoq parchalanib ketgan bo'lsa-da, respublikalar bir muddat umumiy "rubl zonasi"da qolishga urindilar. Biroq Rossiya 1993-yilda o'zining yangi pullarini joriy qilib, eski sovet rubllarini bekor qilgach, qo'shni davlatlardan qiymatsiz pul massasi yuk mashinalarida O'zbekistonga oqib kela boshladi. Natijada giperinflyatsiya yuz berib, bir qop un narxi ertalab va kechqurun orasida keskin o'zgarardi.
+                </p>
+                <p>
+                    Ushbu tahdidni bartaraf etish uchun O'zbekiston shoshilinch ravishda vaqtincha to'lov vositasi — <strong>"So'm-Kupon"</strong>ni joriy etdi. Bu pullar tashqi ko'rinishidan oddiy qog'ozni eslatsa-da, ular mamlakat ichki bozorini tashqi "valyuta hujumi"dan himoya qildi va o'z valyutasini joriy etish uchun zamin tayyorladi. 
+                </p>
+
+                <!-- RASM -->
+                <div class="img-frame" style="width: 100%; height: auto;">
+                    <img src="page2.png" alt="So'm banknotasi surati" style="width:100%;">
+                </div>
+                <div class="caption">1994-yil 1-iyul. Mustaqil O'zbekistonning haqiqiy "So'm" banknotalari muomalaga kiritildi. O'shanda $1 = 7 so'm edi.</div>
+
+                <div class="sub-head">2. "QORA BOZOR" VA ISLOHOTLAR</div>
+                <p>
+                    1996-yildan 2017-yilgacha bo'lgan davr O'zbekiston moliya tizimida murakkab iz qoldirdi. Valyuta zaxiralarini tejash maqsadida kiritilgan cheklovlar norasmiy iqtisodiyotni keltirib chiqardi. Tadbirkorlar va oddiy xalq yillar davomida ikki xil kurs — "Davlat kursi" va "Bozor kursi" orasidagi tafovut bilan yashashga majbur bo'ldi. Bu xorijiy investitsiyalarni to'sib turuvchi asosiy to'g'on edi.
+                </p>
+
+                <div class="pull-quote">
+                    "2017-yil 2-sentabr. Bu kun O‘zbekiston iqtisodiyotining ikkinchi marta tug‘ilgan kunidir. Prezident farmoni bilan 'Qora bozor' tarixga aylandi."
+                </div>
+
+                <div class="sub-head">3. BANK TIZIMI TRANSFORMATSIYASI (2018-2025)</div>
+                <p>
+                    Erkin konvertatsiyaning yo'lga qo'yilishi bank sohasida inqilob yasadi. Davlat banklarining ulushi kamaytirilib, xususiylashtirish jarayoni boshlandi. Vengriyaning <strong>"OTP Bank"</strong> (Ipoteka Bankni sotib oldi) va Gruziyaning <strong>"TBC Bank"</strong> kabi xalqaro o'yinchilar bozorga kirib keldi. Bu raqobat xizmat sifatini keskin oshirdi. Ilgari kredit olish uchun haftalab hujjat yig'ilgan bo'lsa, hozir mobil ilovalar orqali "skoring" tizimi yordamida daqiqalar ichida kredit ajratilmoqda.
+                </p>
+                <p>
+                    Bugun O'zbekistonda nafaqat plastik kartalar, balki "NFC", "QR-kod" va "Face-ID" orqali to'lovlar odatiy holga aylandi. Aholi qo'lidagi naqd pul aylanmasi yil sayin qisqarib, raqamli "cashless" iqtisodiyot shiddat bilan rivojlanmoqda.
+                </p>
+            </div>
+
+            <!-- O'NG TOMON: SIDEBAR STATISTIKA -->
+            <div class="sidebar">
+                
+                <!-- JADVAL QUTISI -->
+                <div class="sidebar-box">
+                    <div class="sidebar-title">KURS TARIXI (1 USD)</div>
+                    <div class="table-row">
+                        <span>1994 Yil (Iyul)</span>
+                        <strong>7 UZS</strong>
+                    </div>
+                    <div class="table-row">
+                        <span>1999 Yil</span>
+                        <strong>140 UZS</strong>
+                    </div>
+                    <div class="table-row">
+                        <span>2008 Yil</span>
+                        <strong>1,300 UZS</strong>
+                    </div>
+                    <div class="table-row">
+                        <span>2017 Yil (Avg)</span>
+                        <strong>4,210 / 8,000*</strong>
+                    </div>
+                    <div class="table-row">
+                        <span>2017 Yil (Sent)</span>
+                        <strong>8,100 UZS</strong>
+                    </div>
+                    <div class="table-row">
+                        <span>2021 Yil</span>
+                        <strong>10,500 UZS</strong>
+                    </div>
+                    <div class="table-row" style="border:none;">
+                        <span>2025 Yil</span>
+                        <strong>13,000 UZS+</strong>
+                    </div>
+                </div>
+
+                <!-- QIZIQARLI FAKT BOX -->
+                <div style="border: 4px double var(--accent-color); padding: 10px; margin-bottom: 20px; text-align: justify; font-size: 12px;">
+                    <h5 style="margin:0 0 5px 0; color:var(--accent-color); font-family:'Oswald'; border-bottom:1px solid #000;">DIGITAL INQILOB</h5>
+                    <p style="margin:0;">
+                        2018-yilgacha O'zbekistonda xalqaro "VISA" va "Mastercard" kartalari faqat cheklangan banklarda va valyutada ochilardi. 
+                        <br><br>
+                        Hozirgi kunda istalgan so'm kartasini xorijiy onlayn to'lovlar uchun ishlatish imkoniyati mavjud.
+                    </p>
+                </div>
+
+                <!-- TIZIM MA'LUMOTI (Filler Text) -->
+                <div class="filler-box">
+                    <h5 style="font-family:'Oswald'; margin: 0 0 10px 0; color:#ccc;">RAQAMLI O'YINCHILAR</h5>
+                    <p style="font-size:11px; margin-bottom:10px;">Banklar endi shunchaki bino emas, balki IT-kompaniyalarga aylanmoqda:</p>
+                    <ul>
+                        <li><strong>Click / Payme:</strong> 20 mln+ foydalanuvchi.</li>
+                        <li><strong>Anor Bank:</strong> Filialsiz birinchi raqamli bank.</li>
+                        <li><strong>Uzum Bank:</strong> Ekotizim (Marketplace) ichidagi moliya.</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-box" style="margin-top:20px; text-align: center;">
+                    <div class="sidebar-title" style="margin-bottom:0; background:black;">INFLYATSIYA (2025)</div>
+                    <h1 style="font-family:'Oswald'; margin: 10px 0; font-size: 48px;">5%</h1>
+                    <p style="margin:0; font-size: 11px;">Markaziy Bankning Targeting Maqsadi</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PASTKI BLOCK (QUYI GRID - Balandlikni oqlash uchun) -->
+        <div class="bottom-section">
+            <div class="feature-item">
+                <h4>1. OLTIN ZAXIRALARI</h4>
+                <p>O'zbekistonning "Moliyaviy Xavfsizlik Yostiqchasi" — bu oltindir. Markaziy Bankning rasmiy zaxiralari qiymati 35-40 mlrd dollarni tashkil etadi. Bu davlatning makroiqtisodiy barqarorligini va so'mning almashuv kursini keskin tebranishlardan asraydi.</p>
+            </div>
+            <div class="feature-item">
+                <h4>2. FINTECH VA KRIPTO</h4>
+                <p>2022-yildan boshlab O'zbekiston kripto-aktivlar savdosini qonuniylashtirdi. Maxsus litsenziyaga ega mahalliy kripto-birjalar (UzNEX) faoliyat yuritmoqda. Jismoniy shaxslar qonuniy ravishda raqamli aktivlarni sotib olishi va sotishi mumkin.</p>
+            </div>
+            <div class="feature-item">
+                <h4>3. DAVLAT QARZI</h4>
+                <p>O'zbekiston hukumati tashqi qarz olishda ehtiyotkorona siyosat yuritmoqda. Qarz hajmi YAIMga nisbatan xavfsiz darajada (taxminan 35-40% atrofida) ushlab turilibdi. Mablag'lar asosan infratuzilma va energetikaga yo'naltirilmoqda.</p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="news-footer">
+            <div>Daler Obidov</div>
+            <div class="page-num">2-SAHIFA</div>
+            <div>OXFORD INTERNATIONAL SCHOO, 2025</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
